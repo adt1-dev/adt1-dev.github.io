@@ -47,9 +47,16 @@
 <a id="installing-a-custom-recovery" class="anchor" href="#installing-a-custom-recovery" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing a custom recovery on your ADT-1</h3>
 
 <p>
-This is a work in progress...<br>
-We can tell the user to do certain commands with <code>&lt;code&gt;</code> tags, like this:<br>
-<code>fastboot flash recovery twrp-molly.img</code>
+For starters, be sure you have adb and fastboot installed and know how to use them.<br>
+After that, download a compatible recovery image. The most recent TWRP build I have is <a href="https://www.androidfilehost.com/?fid=24052804347766730">here</a>.<br>
+Now you're ready to begin.<br>
+<br>
+Boot into fastboot mode by holding down the rear button of the device while plugging it into a power source. (Be sure you are using your "Developer Cable" to connect your ADT-1 to your computer.)<br>
+Continue holding down the button until you are greeted with the fastboot screen.<br>
+Now, on your PC, type the following into a Command Prompt (or Terminal) window:
+<code>fastboot flash recovery twrp-molly-2.8.7.0-06-29-15.img</code><br>
+Now you should be able to reboot into TWRP recovery!<br>
+Please note that you need a USB mouse or extreme knowledge of adb to install things or navigate through TWRP.
 </p>
 
 <h3>
