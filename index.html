@@ -4,7 +4,7 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="ADT-1 Development Hub : Centralization For All things ADT-1">
+    <meta name="description" content="ADT-1 Development Hub : Centralization For All Things ADT-1">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
@@ -47,20 +47,94 @@
 <a id="installing-a-custom-recovery" class="anchor" href="#installing-a-custom-recovery" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing a custom recovery on your ADT-1</h3>
 
 <p>
-For starters, be sure you have adb and fastboot installed and know how to use them.<br>
-After that, download a compatible recovery image. The most recent TWRP build I have is <a href="https://www.androidfilehost.com/?fid=24052804347766730">here</a>.<br>
-Now you're ready to begin.<br>
+This is a work in progress...<br>
 <br>
-Boot into fastboot mode by holding down the rear button of the device while plugging it into a power source. (Be sure you are using your "Developer Cable" to connect your ADT-1 to your computer.)<br>
-Continue holding down the button until you are greeted with the fastboot screen.<br>
-Now, on your PC, type the following into a Command Prompt (or Terminal) window:
-<code>fastboot flash recovery twrp-molly-2.8.7.0-06-29-15.img</code><br>
-Now you should be able to reboot into TWRP recovery!<br>
-Please note that you need a USB mouse or extreme knowledge of adb to install things or navigate through TWRP.
+To flash a custom recovery on your device, first, choose a recovery: TWRP (Reccomended) or CM Recovery (Not supported by this guide, only use if you know what you are doing)<br>
+<br>
+TWRP = https://dl.twrp.me/molly/twrp-2.8.7.0-molly.img.html<br>
+CM Recovery = https://www.androidfilehost.com/?fid=24052804347773639<br>
+<br>
+Install the newest ADB/Fastboot (Google it).<br>
+<br>
+Now, reboot to bootloader (fastboot) mode.<br> 
+Do this by unplugging the ADT-1, holding the button on the back, and plugging it back in.<br>
+<br>
+Open a cmd/terminal and run:<br>
+<code>fastboot flash recovery /path/to/recovery.img</code><br>
+<br>
+Use the button on the back on the ADT-1 to highlight "Recovery Kernel", then long press the button to enter select it. You are now in TWRP.<br>
+<br>
+NOTE: You will need a USB mouse plugged in to navigate, the remote does not function in recovery.<br>
 </p>
-
+	
 <h3>
-  
+<br>
+<a id="installing-unnoficial-cyanogenmod-test-builds" class="anchor" href="#installing-unnoficial-cyanogenmod-test-builds" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing our Unofficial CyanogenMod 12.1 Builds</h3>
+<p>
+<br>
+WARNING: THIS DELETE YOUR APPS! Your SDCard's contents will remain intact.<br>
+<br>
+NOTE: Many things are broken in these builds! Take a backup of /system (and if you want, your /data)in TWRP in case!<br>
+<br>
+Don't report bugs that are already known, check the "Issues" tab on out GitHub (linked above). If it isn't there, first do your best to recreate the bug, and list the steps you took, then report it.<br>
+<br>
+GApps have some odd bugs, we reccomend not using them right now, it can break bluetooth.<br>
+<br>
+Please downlaod the newest build from here:<br>
+<a href="https://www.androidfilehost.com/?fid=24052804347772973" class="user-mention">https://www.androidfilehost.com/?fid=24052804347772973</a><br>
+<br>
+Optionally download the newest GApps from here:<br>
+<a href="https://www.androidfilehost.com/?fid=24052804347772987" class="user-mention">https://www.androidfilehost.com/?fid=24052804347772987</a><br>
+<br>
+Wipe /data, /system, /cache, and dalvik-cache<br>
+<br>
+Flash the ROM (and optionally, GApps) via TWRP.<br>
+(you can drag and drop the file via USB while you are in TWRP)<br>
+<br>
+Now, if you want to, flash SuperSU, though, its completely unnecessary, and reccomended against, as CM12.1 has optional Root baked into Developer Settings.<br>
+</p>
+<h3>
+<p>
+<br>
+<a id="known-issues" href="#known-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Known Issues</h3>
+<br>
+1. BT does not function if the GApps package is flashed -- Probably due to lack of the BT pairing tutorial APK, should be fixed in the next GApps<br>
+2. Video is somewhat choppy -- Probably a FrameBuffer issue, looking into it<br>
+3. HDMI Audio out does not work -- Configuration error, looking into it<br>
+4. AudioFX FC's -- related to Issue #3 -- see issue #3<br>
+5. The Sound Panel in LeanBack Settings Crashes and causes a Bootloop -- see issue #3<br>
+6. Some Videos (YouTube, Google Play Movies, etc.) won't play -- DRM Issue, No leads yet<br>
+7. DRM Issues -- No Leads Yet<br>
+<br>
+</p>
+<h3>
+<a id="reverting-to-stock" class="anchor" href="#reverting-to-stock" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reverting to Stock</h3>
+<p>
+<br>
+WARNING: THIS DELETE YOUR APPS! Your SDCard's contents will remain intact.<br>
+<br>
+Download this file:<br>
+<a href="http://coggy.euroskank.com/LatestADTSystem.zip" class="user-mention">http://coggy.euroskank.com/LatestADTSystem.zip</a><br>
+<br>
+Drag and drop the file via USB (Must be in TWRP).<br>
+<br>
+Wipe /data, /system, /cache, and dalvik-cache<br>
+<br>
+Install the .zip you downloaded.<br>
+<br>
+Congrats, you are now on Stock 5.0.2 (LRX22G), if you want root, just flash SuperSU via TWRP. <br>
+<br>
+</p>
+<h3>
+<a id="rooting-stock-lrx22g" class="anchor" href="#rooting-stock-lrx22g" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rooting Stock LRX22G</h3>
+<p>
+Follow the steps outlined in the "Installing a custom recovery on your ADT-1" section above.<br>
+<br>
+Now, download SuperSU and flash via TWRP.<br>
+<br>
+</p>
+<h3>
+<p>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
 <p>Greg Willard (<a href="https://github.com/r3pwn" class="user-mention">@r3pwn</a>)<br>
@@ -69,9 +143,15 @@ TeamRegular (<a href="https://github.com/TeamRegular" class="user-mention">@Team
 Nolen Johnson (<a href="https://github.com/npjohnson" class="user-mention">@npjohnson</a>)<br>
 CyanogenMod (<a href="https://github.com/CyanogenMod" class="user-mention">@CyanogenMod</a>)<br>
 TeamWin (<a href="https://github.com/TeamWin" class="user-mention">@TeamWin</a>)</p>
-
+</p>
 <h3>
+<p>
+<br>
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<p>Greg Willard (<a href="https://twitter.com/r3pwn" class="user-mention">@r3pwn</a>)<br>
+Nolen Johnson (<a href="https://twitter.com/nolenjohnson" class="user-mention">@nolenjohnson</a>)<br>
+<a href="https://developer.android.com/tv/adt-1/index.html" class="user-mention">ADT-1 Google Support Page</a><br>
+</p>
 
 <!--<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
       </section>
@@ -88,3 +168,5 @@ TeamWin (<a href="https://github.com/TeamWin" class="user-mention">@TeamWin</a>)
 
   </body>
 </html>
+
+
