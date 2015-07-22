@@ -47,24 +47,23 @@
 <a id="installing-a-custom-recovery" class="anchor" href="#installing-a-custom-recovery" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing a custom recovery on your ADT-1</h3>
 
 <p>
-This is a work in progress...<br>
-<br>
-To flash a custom recovery on your device, first, choose a recovery: TWRP (Reccomended) or CM Recovery (Not supported by this guide, only use if you know what you are doing)<br>
+To flash a custom recovery on your device, first, download the appropriate recovery image:<br>
 <br>
 TWRP = <a href="https://dl.twrp.me/molly/twrp-2.8.7.0-molly.img.html">https://dl.twrp.me/molly/twrp-2.8.7.0-molly.img.html</a><br>
-CM Recovery = <a href="https://www.androidfilehost.com/?fid=24052804347773639">https://www.androidfilehost.com/?fid=24052804347773639</a><br>
 <br>
 Install the newest ADB/Fastboot (Google it).<br>
 <br>
 Now, reboot to bootloader (fastboot) mode.<br> 
-Do this by unplugging the ADT-1, holding the button on the back, and plugging it back in.<br>
+Do this by unplugging the ADT-1, holding the button on the back, and (while continuing to hold the button) plugging it back in.<br>
 <br>
-Open a cmd/terminal and run:<br>
+Open a Command Prompt/Terminal window and run:<br>
 <code>fastboot flash recovery /path/to/recovery.img</code><br>
+(Tip: If you don't know exactly where the image is, or you don't want to type it out, you can type "fastboot flash recovery " then drag the image into the window and drop it in.)<br>
+(Note: The ADT-1 is a little weird in fastboot. If the command seems to hang, try rebooting into the bootloader again and issuing the command quicker.)<br>
 <br>
 Use the button on the back on the ADT-1 to highlight "Recovery Kernel", then long press the button to enter select it. You are now in TWRP.<br>
 <br>
-NOTE: You will need a USB mouse plugged in to navigate, the remote does not function in recovery.<br>
+NOTE: You will need a USB mouse plugged in (or an awesome knowledge of adb) to navigate, the remote does not function in recovery.<br>
 </p>
 	
 <h3>
@@ -72,50 +71,44 @@ NOTE: You will need a USB mouse plugged in to navigate, the remote does not func
 <a id="installing-unnoficial-cyanogenmod-test-builds" class="anchor" href="#installing-unnoficial-cyanogenmod-test-builds" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing our Unofficial CyanogenMod 12.1 Builds</h3>
 <p>
 <br>
-WARNING: THIS DELETE YOUR APPS! Your SDCard's contents will remain intact.<br>
+(Warning: This will erase your data. However, the contents on your internal storage should remain intact.)<br>
 <br>
-NOTE: Many things are broken in these builds! Take a backup of /system (and if you want, your /data)in TWRP in case!<br>
+(Note: These builds aren't exactly daily-driver ready yet. Take a backup of /system (and if you want, /data) in TWRP just in case.)<br>
 <br>
-Don't report bugs that are already known, check the "Issues" tab on out GitHub (linked above). If it isn't there, first do your best to recreate the bug, and list the steps you took, then report it.<br>
+Don't report bugs that are already known, check <a href="https://github.com/adt1-dev/android_device_google_molly/issues">here</a>. If it isn't there, first do your best to recreate the bug, and list the steps you took, then report it by going <a href="https://github.com/adt1-dev/android_device_google_molly/issues">here</a> and clicking "New Issue".<br>
 <br>
-GApps have some odd bugs, we reccomend not using them right now, it can break bluetooth.<br>
+You can download the newest unofficial ADT-1 CyanogenMod build from here:<br>
+<a href="https://www.androidfilehost.com/?fid=24052804347778127" class="user-mention">https://www.androidfilehost.com/?fid=24052804347778127</a><br>
 <br>
-Please downlaod the newest build from here:<br>
-<a href="https://www.androidfilehost.com/?fid=24052804347772973" class="user-mention">https://www.androidfilehost.com/?fid=24052804347772973</a><br>
-<br>
-Optionally download the newest GApps from here:<br>
-<a href="https://www.androidfilehost.com/?fid=24052804347772987" class="user-mention">https://www.androidfilehost.com/?fid=24052804347772987</a><br>
+Optionally, you can download the newest ADT-1 Android 5.1.1 GApps from here:<br>
+<a href="https://www.androidfilehost.com/?fid=24052804347778393" class="user-mention">https://www.androidfilehost.com/?fid=24052804347778393</a><br>
 <br>
 Wipe /data, /system, /cache, and dalvik-cache<br>
 <br>
 Flash the ROM (and optionally, GApps) via TWRP.<br>
-(you can drag and drop the file via USB while you are in TWRP)<br>
-<br>
-Now, if you want to, flash SuperSU, though, its completely unnecessary, and reccomended against, as CM12.1 has optional Root baked into Developer Settings.<br>
+(Tip: You can drag-and-drop the file into the Command Prompt/Terminal window on your computer while your device is in TWRP)<br>
 </p>
 <h3>
 <p>
 <br>
 <a id="known-issues" href="#known-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Known Issues</h3>
 <br>
-1. BT does not function if the GApps package is flashed<br>
-2. Video is somewhat choppy -- looking into it<br>
-3. HDMI Audio out does not work -- looking into it<br>
-4. AudioFX FC's<br>
-5. The Sound Panel in LeanBack Settings Crashes and causes a Bootloop (this is because of issue #3)<br>
-6. Some Videos (YouTube, Google Play Movies, etc.) won't play -- No leads yet<br>
+1. HDMI Audio out does not work -- looking into it<br>
+2. AudioFX FC's<br>
+3. The Sound Panel in LeanBack Settings Crashes and causes a Bootloop (this is because of issue #3)<br>
+4. Some Videos (YouTube, Google Play Movies, etc.) won't play -- No leads yet<br>
 <br>
 </p>
 <h3>
 <a id="reverting-to-stock" class="anchor" href="#reverting-to-stock" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reverting to Stock</h3>
 <p>
 <br>
-WARNING: THIS DELETE YOUR APPS! Your SDCard's contents will remain intact.<br>
+(Warning: This will erase your data. However, the contents on your internal storage should remain intact.)<br>
 <br>
 Download this file:<br>
 <a href="http://coggy.euroskank.com/LatestADTSystem.zip" class="user-mention">http://coggy.euroskank.com/LatestADTSystem.zip</a><br>
 <br>
-Drag and drop the file via USB (Must be in TWRP).<br>
+Place the zip on your device's Internal Storage.<br>
 <br>
 Wipe /data, /system, /cache, and dalvik-cache<br>
 <br>
