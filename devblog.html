@@ -42,25 +42,27 @@
 
 					<!-- Text -->
 						<section>
-							<h3>Text</h3>
-							<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-							This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-							This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+							<h3>From Small Beginnings... (WiFi and BlueTooth).</h3>
+							<p>Greg and I (Nolen) began work by forking UnjustifiedDev's tree (which was strongly kanged from his own MadKatz Mojo Android Set Top Box device tree), into the Git organization Mark created "ADT1-DEV". We shortly realized that we would need to add some dummy functions to LibHardware_Legacy and WPA_Supplicant_8 to get the device tree to even compile in a cm-12.1 tree,. Greg added these, and we built targeting Molly for the first time.</p>
+							<p> Quite comically, WiFi and BlueTooth worked! Apparently, having the hardware_marvell firmware directory was enough, and our dummy functions got it to initialize the hardware.
+
+							<h3>Big time annoyances... (APK Signature Errors)</h3>
+							<p>After we had builds, we wanted Google Apps! So, we flashed homeade Android TV Google Apps packages, and were presented with a plethora of signature errors that caused device lag, and nuked BlueTooth. We had to learn on the fly how to pull device blobs, and identify what blobs are necessary/which should be built from source. As you can likely see from our 'proprietary_vendor_google' directory, we had many discussions (and arguements, lol) about what blobs should be pulled, built from source, signed with platform certificates, presigned, etc.</p>
+							<p> After quite a few experiments, we discovered that in order to use the Android TV Apps (and not have them throw out constant signature errors), we needed CanvasPackageInstaller pulled from the device and platform signed. There were also quite a few apps that we discovered were not platform, and needed to be added by the Google Apps package. Look at our commit log for 'proprietary_vendor_google-1', as it does everything right.
+
+							<h3>Matt gets Audio, I just get static *sheds tear*... (Audio/PCM/Bitrate Woes)</h3>
+							<p>Matt ran into Greg and I on GitHub and had some ideas to help us get HDMI Audio, and to be honest, had he not jumped onboard, we wouldn't have HDMI Audio today.</p>
+							<p>I'll let Matt explain this one. ;)</p>
+
+							<h3>MARSHMALLOW!!! (UPDATES, UPDATES, UPDATES.)</h3>
+							<p>David & Matt did a ton of work here, I'll let them help fill it in</p>
+							<p>It took quite a few SELinux commits, storage updates, init updates, and a TON of trial and error to get it booting, after that, we jsut reapplied all of our changes (MM negated the need for the LibHardware_Legacy & WPA_Supplicant_8 Patches, and introduced a hardware_marvell directory that contained a working LibBT, but no wlan firmware directory, so, we made a new hardware_marvell_wlan repo you can sync into 6.0.x trees)
+
+							<h3>Greg and I race... Greg Wins. (LED control!)</h3>
+							<p>Greg and I both tried to implement LED control in the kernel, and sort of raced each other to do it successfully.</p>
+							<p>Greg modified the built in aah-io driver to do so, while I wrote a new kernel driver. Greg beat me, and we had RGB Color Control (0-255) LED Color control. We wrote some init.rc scripts to change the values much quicker, and allow for seperate Android/Recovery color selection. We also wrote an app called MollyLED (that may get pushed to Google Play someday), that allows the user to easier change the colors of the LED.
 
 							<hr />
-
-							<header>
-								<h3>Heading with a Subtitle</h3>
-								<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-							</header>
-							<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-							<header>
-								<h4>Heading with a Subtitle</h4>
-								<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-							</header>
-							<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-
-
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
